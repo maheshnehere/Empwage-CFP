@@ -5,7 +5,6 @@ import java.util.Random;
 public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
-
         int FullTimeHrs = 8;
         int partTimeHrs = 4;
         int wagePerHour = 20;
