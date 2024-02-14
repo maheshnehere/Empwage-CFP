@@ -9,6 +9,11 @@ public class EmployeeWage {
         int FullTimeHrs = 8,partTimeHrs = 4,wagePerHour = 20;
         int workingDaysInMonth = 20,wageForMonth, wageForMonthPartTime;
 
+        int FullTimeHrs = 8;
+        int partTimeHrs = 4;
+        int wagePerHour = 20;
+        int fullTimeWage, partTimeWage;
+
         wageForMonth = FullTimeHrs * wagePerHour * workingDaysInMonth;
 
         wageForMonthPartTime = partTimeHrs * wagePerHour * workingDaysInMonth;
