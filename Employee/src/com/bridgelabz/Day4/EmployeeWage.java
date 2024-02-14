@@ -6,14 +6,19 @@ public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
 
-        // UC 1 = Check Employee is Present or Absent
+      UC-2-EmpDailyWage
+        
+        int fullDayHours = 8, wagePerHour = 20,dailyWage = 0;
+
+        dailyWage = fullDayHours * wagePerHour;
+
         Random random = new Random();
         boolean num = random.nextBoolean();
 
-        if (num == true) {
-            System.out.println(" Employee is Present");
-        } else {
-            System.out.println(" Employee is Absent");
+        if (num) { // Employee is present.
+            System.out.println("Daily Employee wage is = " + dailyWage);
+        } else { // Employee is absent.
+            System.out.println("Daily Employee wage is = 0");
         }
     }
 }
