@@ -5,6 +5,9 @@ import java.util.Random;
 public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
+
+      UC-2-EmpDailyWage
+        
         int fullDayHours = 8, wagePerHour = 20,dailyWage = 0;
 
         dailyWage = fullDayHours * wagePerHour;
