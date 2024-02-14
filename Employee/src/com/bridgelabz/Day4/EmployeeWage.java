@@ -6,21 +6,27 @@ public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
 
-        int partTime = 4,FullTimeHrs = 8,wagePerHour = 20,partTimeWage = 0,wageFullTime = 0;
+        int FullTimeHrs = 8;
+        int partTimeHrs = 4;
+        int wagePerHour = 20;
+        int fullTimeWage, partTimeWage;
 
-        partTimeWage = partTime * wagePerHour;
-        wageFullTime = FullTimeHrs * wagePerHour;
-
+        fullTimeWage = FullTimeHrs * wagePerHour;
+        partTimeWage = partTimeHrs * wagePerHour;
 
         Random random = new Random();
-        int num = random.nextInt(3);
+        int sc = random.nextInt(2);
 
-        if (num == 0) { // Employee is present.
-            System.out.println("Part time Employee Wage  : " + partTimeWage);
-        } else if(num == 1){ // Employee is absent.
-            System.out.println("Full time Employee Wage  : "+wageFullTime);
-        }else {
-            System.out.println("Employee is Absent");
+        switch (sc) {
+            case (0):
+                System.out.println("Full time Employee Wage  " + fullTimeWage);
+                break;
+            case (1):
+                System.out.println("Part time Employee Wage  " + partTimeWage);
+                break;
+            default:
+                System.out.println("Employee is Absent");
+
         }
     }
 }
