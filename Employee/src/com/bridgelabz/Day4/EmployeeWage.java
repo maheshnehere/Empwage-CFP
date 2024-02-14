@@ -12,7 +12,6 @@ public class EmployeeWage {
 
         Random random = new Random() ;
         //Number of Working Days.
-
         int num1 = random.nextInt(20)+1;
         System.out.println("Numbers of Total Working Days in Month =" + num1);
 
@@ -21,6 +20,14 @@ public class EmployeeWage {
 
         fullTimeWageForMonth = fullTimeHours * wagePerHour * workingDaysInMonth;
         partTimeWageForMonth = partTimeHours * wagePerHour * workingDaysInMonth;
+
+        int FullTimeHrs = 8;
+        int partTimeHrs = 4;
+        int wagePerHour = 20;
+        int fullTimeWage, partTimeWage;
+
+        wageForMonth = FullTimeHrs * wagePerHour * workingDaysInMonth;
+
 
 
         int num = random.nextInt(3);
