@@ -37,7 +37,6 @@ public class EmployeeWage {
         int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
         return totalEmpWage;
     }
-
     public static void main(String[] args) {
         // Calling the class method to compute employee wage
         int totalWage = computeEmployeeWage();
