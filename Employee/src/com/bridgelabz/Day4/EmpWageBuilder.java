@@ -20,6 +20,7 @@ class EmpWageBuilder {
             int totalEmpWage = computeEmployeeWage(companyEmpWage);
             companyEmpWage.setTotalEmpWage(totalEmpWage);
             System.out.println("Total Employee Wage for " + companyEmpWage.getCompanyName() + ": $" + totalEmpWage);
+            System.out.println("Daily Wages for " + companyEmpWage.getCompanyName() + ": " + companyEmpWage.getDailyWages());
         }
     }
 
@@ -41,6 +42,9 @@ class EmpWageBuilder {
                 default:
                     empHrs = 0;
             }
+
+            int dailyWage = empHrs * companyEmpWage.getEmpRatePerHour();
+            companyEmpWage.addDailyWage(dailyWage);
 
             totalEmpHrs += empHrs;
             totalWorkingDays++;
