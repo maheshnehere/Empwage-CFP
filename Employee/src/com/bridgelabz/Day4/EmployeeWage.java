@@ -3,45 +3,44 @@ package com.bridgelabz.Day4;
 import java.util.Random;
 
 public class EmployeeWage {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation Program");
-        int fullTimeHours = 8;
-        int partTimeHours = 4;
-        int wagePerHour = 20;
-        int fullTimeWageForMonth, partTimeWageForMonth;
+    // Class variables
+    private static final int FULL_TIME = 1;
+    private static final int PART_TIME = 2;
+    private static final int EMP_RATE_PER_HOUR = 20;
+    private static final int NUM_WORKING_DAYS = 20;
+    private static final int MAX_HRS_IN_MONTH = 100;
 
-        Random random = new Random() ;
-        //Number of Working Days.
-        int num1 = random.nextInt(20)+1;
-        System.out.println("Numbers of Total Working Days in Month =" + num1);
+    // Class method to compute employee wage
+    public static int computeEmployeeWage() {
+        int totalEmpHrs = 0;
+        int totalWorkingDays = 0;
 
-        int workingDaysInMonth = num1 ;
+        while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
+            int empHrs = 0;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
+            switch (empCheck) {
+                case FULL_TIME:
+                    empHrs = 8;
+                    break;
+                case PART_TIME:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+            }
 
-        fullTimeWageForMonth = fullTimeHours * wagePerHour * workingDaysInMonth;
-        partTimeWageForMonth = partTimeHours * wagePerHour * workingDaysInMonth;
-
-        int FullTimeHrs = 8;
-        int partTimeHrs = 4;
-        int wagePerHour = 20;
-        int fullTimeWage, partTimeWage;
-
-        wageForMonth = FullTimeHrs * wagePerHour * workingDaysInMonth;
-
-
-
-        int num = random.nextInt(3);
-
-        switch (num){
-            case(0) :
-                System.out.println("Full time Employee Wage for Month is = " + fullTimeWageForMonth);
-                break;
-            case(2) :
-                System.out.println("Part time Employee Wage for Month is = " + partTimeWageForMonth);
-                break;
-            default:
-                System.out.println("Employee is Absent");
-
+            totalEmpHrs += empHrs;
+            totalWorkingDays++;
         }
+
+        int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+        return totalEmpWage;
+    }
+
+    public static void main(String[] args) {
+        // Calling the class method to compute employee wage
+        int totalWage = computeEmployeeWage();
+        System.out.println("Total Employee Wage: $" + totalWage);
     }
 }
