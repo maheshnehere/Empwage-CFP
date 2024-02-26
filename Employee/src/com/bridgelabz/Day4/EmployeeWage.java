@@ -3,27 +3,20 @@ package com.bridgelabz.Day4;
 import java.util.Random;
 
 public class EmployeeWage {
-    // Class variables
-    private static final int FULL_TIME = 1;
-    private static final int PART_TIME = 2;
-    private static final int EMP_RATE_PER_HOUR = 20;
-    private static final int NUM_WORKING_DAYS = 20;
-    private static final int MAX_HRS_IN_MONTH = 100;
-
-    // Class method to compute employee wage
-    public static int computeEmployeeWage() {
+    // Class method to compute employee wage for a specific company
+    public static int computeEmployeeWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHrsInMonth) {
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
 
-        while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_WORKING_DAYS) {
+        while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays < numWorkingDays) {
             int empHrs = 0;
             int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
             switch (empCheck) {
-                case FULL_TIME:
+                case 1:
                     empHrs = 8;
                     break;
-                case PART_TIME:
+                case 2:
                     empHrs = 4;
                     break;
                 default:
@@ -34,12 +27,16 @@ public class EmployeeWage {
             totalWorkingDays++;
         }
 
-        int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
+        int totalEmpWage = totalEmpHrs * empRatePerHour;
+        System.out.println("Total Employee Wage for " + companyName + ": $" + totalEmpWage);
         return totalEmpWage;
     }
+}
+
+public class EmployeeWageMain {
     public static void main(String[] args) {
-        // Calling the class method to compute employee wage
-        int totalWage = computeEmployeeWage();
-        System.out.println("Total Employee Wage: $" + totalWage);
+        // Calling the class method to compute employee wage for multiple companies
+        EmployeeWage.computeEmployeeWage("Company A", 20, 22, 100);
+        EmployeeWage.computeEmployeeWage("Company B", 25, 25, 120);
     }
 }
