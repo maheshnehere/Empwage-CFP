@@ -3,8 +3,23 @@ package com.bridgelabz.Day4;
 import java.util.Random;
 
 public class EmployeeWage {
-    // Class method to compute employee wage for a specific company
-    public static int computeEmployeeWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHrsInMonth) {
+    // Instance variables for each company
+    private final String companyName;
+    private final int empRatePerHour;
+    private final int numWorkingDays;
+    private final int maxHrsInMonth;
+    private int totalEmpWage;
+
+    // Constructor to initialize instance variables
+    public EmployeeWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHrsInMonth) {
+        this.companyName = companyName;
+        this.empRatePerHour = empRatePerHour;
+        this.numWorkingDays = numWorkingDays;
+        this.maxHrsInMonth = maxHrsInMonth;
+    }
+
+    // Class method to compute employee wage for the company
+    public void computeEmployeeWage() {
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
 
@@ -27,16 +42,12 @@ public class EmployeeWage {
             totalWorkingDays++;
         }
 
-        int totalEmpWage = totalEmpHrs * empRatePerHour;
+        totalEmpWage = totalEmpHrs * empRatePerHour;
+    }
+
+    // Display total employee wage for the company
+    public void displayTotalEmpWage() {
         System.out.println("Total Employee Wage for " + companyName + ": $" + totalEmpWage);
-        return totalEmpWage;
     }
 }
 
-public class EmployeeWageMain {
-    public static void main(String[] args) {
-        // Calling the class method to compute employee wage for multiple companies
-        EmployeeWage.computeEmployeeWage("Company A", 20, 22, 100);
-        EmployeeWage.computeEmployeeWage("Company B", 25, 25, 120);
-    }
-}
