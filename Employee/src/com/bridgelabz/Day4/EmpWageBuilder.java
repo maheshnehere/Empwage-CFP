@@ -23,6 +23,9 @@ class EmpWageBuilder {
             System.out.println("Daily Wages for " + companyEmpWage.getCompanyName() + ": " + companyEmpWage.getDailyWages());
         }
     }
+    public int getTotalWageByCompany(String companyName) {
+        return companyTotalWages.getOrDefault(companyName, 0);
+    }
 
     private int computeEmployeeWage(CompanyEmpWage companyEmpWage) {
         int totalEmpHrs = 0;
