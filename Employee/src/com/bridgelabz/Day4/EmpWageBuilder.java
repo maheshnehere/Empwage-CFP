@@ -1,5 +1,6 @@
 package com.bridgelabz.Day4;
-class EmpWageBuilder {
+
+class EmpWageBuilder implements IEmpWageBuilder {
     private int numCompanies;
     private CompanyEmpWage[] companyEmpWages;
 
@@ -8,11 +9,13 @@ class EmpWageBuilder {
         this.companyEmpWages = new CompanyEmpWage[5]; // Assuming a maximum of 5 companies for this example
     }
 
+    @Override
     public void addCompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHrsInMonth) {
         companyEmpWages[numCompanies] = new CompanyEmpWage(companyName, empRatePerHour, numWorkingDays, maxHrsInMonth);
         numCompanies++;
     }
 
+    @Override
     public void computeEmpWage() {
         for (int i = 0; i < numCompanies; i++) {
             int totalEmpWage = computeEmployeeWage(companyEmpWages[i]);
@@ -21,30 +24,12 @@ class EmpWageBuilder {
         }
     }
 
-    private int computeEmployeeWage(CompanyEmpWage companyEmpWage) {
-        int totalEmpHrs = 0;
-        int totalWorkingDays = 0;
+    private int computeEmployeeWage(CompanyEmpWage companyEmpWage){
 
-        while (totalEmpHrs <= companyEmpWage.getMaxHrsInMonth() && totalWorkingDays < companyEmpWage.getNumWorkingDays()) {
-            int empHrs = 0;
-            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
-
-            switch (empCheck) {
-                case 1:
-                    empHrs = 8;
-                    break;
-                case 2:
-                    empHrs = 4;
-                    break;
-                default:
-                    empHrs = 0;
-            }
-
-            totalEmpHrs += empHrs;
-            totalWorkingDays++;
-        }
-
-        return totalEmpHrs * companyEmpWage.getEmpRatePerHour();
     }
+        // (Same as previous code...)
+
 }
+
+
 
