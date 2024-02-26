@@ -1,23 +1,25 @@
 package com.bridgelabz.Day4;
+
+import java.util.ArrayList;
+import java.util.List;
+
 class EmpWageBuilder {
-    private int numCompanies;
-    private CompanyEmpWage[] companyEmpWages;
+    private List<CompanyEmpWage> companyEmpWages;
 
     public EmpWageBuilder() {
-        this.numCompanies = 0;
-        this.companyEmpWages = new CompanyEmpWage[5]; // Assuming a maximum of 5 companies for this example
+        this.companyEmpWages = new ArrayList<>();
     }
 
     public void addCompanyEmpWage(String companyName, int empRatePerHour, int numWorkingDays, int maxHrsInMonth) {
-        companyEmpWages[numCompanies] = new CompanyEmpWage(companyName, empRatePerHour, numWorkingDays, maxHrsInMonth);
-        numCompanies++;
+        CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, empRatePerHour, numWorkingDays, maxHrsInMonth);
+        companyEmpWages.add(companyEmpWage);
     }
 
     public void computeEmpWage() {
-        for (int i = 0; i < numCompanies; i++) {
-            int totalEmpWage = computeEmployeeWage(companyEmpWages[i]);
-            companyEmpWages[i].setTotalEmpWage(totalEmpWage);
-            System.out.println("Total Employee Wage for " + companyEmpWages[i].getCompanyName() + ": $" + totalEmpWage);
+        for (CompanyEmpWage companyEmpWage : companyEmpWages) {
+            int totalEmpWage = computeEmployeeWage(companyEmpWage);
+            companyEmpWage.setTotalEmpWage(totalEmpWage);
+            System.out.println("Total Employee Wage for " + companyEmpWage.getCompanyName() + ": $" + totalEmpWage);
         }
     }
 
@@ -47,4 +49,6 @@ class EmpWageBuilder {
         return totalEmpHrs * companyEmpWage.getEmpRatePerHour();
     }
 }
+
+
 
